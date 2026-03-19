@@ -80,3 +80,144 @@ body {
     background: rgba(255, 255, 255, 0.8);
     padding: 2rem;
 }
+
+/* SOBRE NOSALTRES */
+.about {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.about-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.about-item.reverse {
+    flex-direction: row-reverse;
+}
+
+.about-item img {
+    width: 300px;
+    border-radius: var(--border-radius);
+}
+/* Contenidor principal de la secció */
+.carta-section {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.seccio-titol {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+/* SECCIÓ CARTA */
+.carta-container {
+    padding: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.titol-seccio {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+/* GRID PRINCIPAL */
+.carta-grid {
+    display: grid;
+    gap: var(--gap-size);
+    grid-template-columns: 100px 1fr;
+    grid-template-areas: 
+        "header-menu header-menu"
+        "side1 content1"
+        "side2 content2";
+}
+
+/* Aplicació de les àrees */
+.area-menu-header { 
+    grid-area: header-menu; 
+    border: 1px solid var(--border-color); 
+    border-radius: 10px; 
+    padding: 1.5rem; 
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.area-side-1 { 
+    grid-area: side1; 
+    border: 1px solid var(--border-color); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-weight: bold;
+}
+
+.area-content-1 { grid-area: content1; padding-left: 1rem; }
+
+.area-side-2 { 
+    grid-area: side2; 
+    border: 1px solid var(--border-color); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-weight: bold;
+}
+
+.area-content-2 { grid-area: content2; padding-left: 1rem; }
+
+
+.area-content-1 h4, .area-content-2 h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.area-content-1 p, .area-content-2 p {
+    font-size: var(--text-size-base);
+    margin-bottom: 1rem;
+    color: #555;
+}
+
+
+.imatges-flex {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap; 
+}
+
+/* Contenedor del plato */
+.card-plat {
+    position: relative; 
+    flex: 1;
+    min-width: 200px;
+    border: 1px solid var(--border-color);
+    overflow: hidden; 
+}
+
+
+.image-plat {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+.plat-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    
+    background: rgba(27, 24, 24, 0.8); 
+    color: #ffffff;
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-top: 1px solid var(--border-color);
+
+}
+
