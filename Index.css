@@ -1,0 +1,82 @@
+:root {
+    --primary-color: #333;
+    --accent-color: #007bff;
+    --bg-light: #f4f4f4;
+    --font-main: Arial, sans-serif;
+    --border-radius: 15px; 
+}
+
+/* RESET I GENERALS */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-main);
+    line-height: 1.6;
+    overflow-x: hidden; 
+}
+
+/* NAVBAR FLEX */
+.navbar {
+    position: sticky;
+    top: 0;
+    background: white;
+    z-index: 1000;
+    padding: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+/* BOTÓ FLOTANT */
+.btn-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: var(--accent-color);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    z-index: 999;
+}
+
+/* HERO SECTION */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+}
