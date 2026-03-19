@@ -220,4 +220,54 @@ body {
     border-top: 1px solid var(--border-color);
 
 }
+/*Galeria */
+.gallery{
+    padding: 2rem; max-width: 1000px; margin: auto;
+}
+.gallery-flex {
+    display: flex;
+    flex-wrap: wrap;       
+    justify-content: center; 
+    gap: 1.5rem;          
+    padding: 2rem;
+    max-width: 1000px;    
+    margin: 0 auto;
+}
 
+.gallery-item {
+   
+    flex: 0 1 auto;
+}
+
+.gallery-item img {
+    border: 3px solid #ccc;
+    transition: all 0.3s ease;
+    width: 200px;         
+    height: 200px;
+    object-fit: cover;    
+    display: block;
+}
+
+.gallery-item:nth-child(1) img,
+.gallery-item:nth-child(4) img,
+.gallery-item:nth-child(5) img,
+.gallery-item:nth-child(8) img {
+    filter: brightness(60%);
+}
+
+.gallery-item:hover img {
+    border-color: var(--accent-color, #007bff);
+    filter: brightness(70%);
+    cursor: pointer;
+}
+
+/* FORMULARI */
+.booking { padding: 2rem; max-width: 800px; margin: auto; }
+.booking-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+.form-group.full { grid-column: span 2; }
+.form-group input, .form-group textarea { width: 100%; padding: 0.5rem; }
+.btn-submit { grid-column: 2; justify-self: end; padding: 0.7rem 2rem; cursor: pointer; }
