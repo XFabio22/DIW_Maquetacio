@@ -3,7 +3,7 @@
     --accent-color: #007bff;
     --bg-light: #f4f4f4;
     --font-main: Arial, sans-serif;
-    --border-radius: 15px; 
+    --border-radius: 15px;
 }
 
 /* RESET I GENERALS */
@@ -16,7 +16,7 @@
 body {
     font-family: var(--font-main);
     line-height: 1.6;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
 /* NAVBAR FLEX */
@@ -26,7 +26,7 @@ body {
     background: white;
     z-index: 1000;
     padding: 1rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .nav-links {
@@ -69,7 +69,7 @@ body {
 .hero-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
 }
 
 .hero-text {
@@ -103,6 +103,7 @@ body {
     width: 300px;
     border-radius: var(--border-radius);
 }
+
 /* Contenidor principal de la secció */
 .carta-section {
     padding: 2rem;
@@ -132,51 +133,59 @@ body {
     display: grid;
     gap: var(--gap-size);
     grid-template-columns: 100px 1fr;
-    grid-template-areas: 
+    grid-template-areas:
         "header-menu header-menu"
         "side1 content1"
         "side2 content2";
 }
 
 /* Aplicació de les àrees */
-.area-menu-header { 
-    grid-area: header-menu; 
-    border: 1px solid var(--border-color); 
-    border-radius: 10px; 
-    padding: 1.5rem; 
+.area-menu-header {
+    grid-area: header-menu;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.5rem;
     text-align: center;
     font-size: 1.5rem;
 }
 
-.area-side-1 { 
-    grid-area: side1; 
-    border: 1px solid var(--border-color); 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
+.area-side-1 {
+    grid-area: side1;
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-weight: bold;
 }
 
-.area-content-1 { grid-area: content1; padding-left: 1rem; }
+.area-content-1 {
+    grid-area: content1;
+    padding-left: 1rem;
+}
 
-.area-side-2 { 
-    grid-area: side2; 
-    border: 1px solid var(--border-color); 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
+.area-side-2 {
+    grid-area: side2;
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-weight: bold;
 }
 
-.area-content-2 { grid-area: content2; padding-left: 1rem; }
+.area-content-2 {
+    grid-area: content2;
+    padding-left: 1rem;
+}
 
 
-.area-content-1 h4, .area-content-2 h4 {
+.area-content-1 h4,
+.area-content-2 h4 {
     font-size: 1.3rem;
     margin-bottom: 0.5rem;
 }
 
-.area-content-1 p, .area-content-2 p {
+.area-content-1 p,
+.area-content-2 p {
     font-size: var(--text-size-base);
     margin-bottom: 1rem;
     color: #555;
@@ -186,16 +195,16 @@ body {
 .imatges-flex {
     display: flex;
     gap: 1rem;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
 }
 
 /* Contenedor del plato */
 .card-plat {
-    position: relative; 
+    position: relative;
     flex: 1;
     min-width: 200px;
     border: 1px solid var(--border-color);
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 
@@ -211,8 +220,8 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    
-    background: rgba(27, 24, 24, 0.8); 
+
+    background: rgba(27, 24, 24, 0.8);
     color: #ffffff;
     text-align: center;
     padding: 0.5rem;
@@ -220,31 +229,35 @@ body {
     border-top: 1px solid var(--border-color);
 
 }
+
 /*Galeria */
-.gallery{
-    padding: 2rem; max-width: 1000px; margin: auto;
+.gallery {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: auto;
 }
+
 .gallery-flex {
     display: flex;
-    flex-wrap: wrap;       
-    justify-content: center; 
-    gap: 1.5rem;          
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
     padding: 2rem;
-    max-width: 1000px;    
+    max-width: 1000px;
     margin: 0 auto;
 }
 
 .gallery-item {
-   
+
     flex: 0 1 auto;
 }
 
 .gallery-item img {
     border: 3px solid #ccc;
     transition: all 0.3s ease;
-    width: 200px;         
+    width: 200px;
     height: 200px;
-    object-fit: cover;    
+    object-fit: cover;
     display: block;
 }
 
@@ -262,26 +275,45 @@ body {
 }
 
 /* FORMULARI */
-.booking { padding: 2rem; max-width: 800px; margin: auto; }
+.booking {
+    padding: 2rem;
+    max-width: 800px;
+    margin: auto;
+}
+
 .booking-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
 }
-.form-group.full { grid-column: span 2; }
-.form-group input, .form-group textarea { width: 100%; padding: 0.5rem; }
-.btn-submit { grid-column: 2; justify-self: end; padding: 0.7rem 2rem; cursor: pointer; }
+
+.form-group.full {
+    grid-column: span 2;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.btn-submit {
+    grid-column: 2;
+    justify-self: end;
+    padding: 0.7rem 2rem;
+    cursor: pointer;
+}
 
 /* FORMULARI RESERVA */
-.booking { 
-    padding: 3rem 2rem; 
-    max-width: 900px; 
-    margin: 0 auto; 
+.booking {
+    padding: 3rem 2rem;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .booking-form {
     display: grid;
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
 }
 
@@ -291,8 +323,8 @@ body {
     gap: 0.5rem;
 }
 
-.form-group.full { 
-    grid-column: span 2; 
+.form-group.full {
+    grid-column: span 2;
 }
 
 .form-group label {
@@ -300,18 +332,18 @@ body {
     font-size: 0.9rem;
 }
 
-.form-group input, 
-.form-group textarea { 
-    width: 100%; 
-    padding: 0.8rem; 
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
     border: 1px solid var(--border-color, #333);
     font-size: var(--text-size-base, 1rem);
 }
 
-.btn-submit { 
-    grid-column: 2; 
-    justify-self: end; 
-    padding: 0.8rem 2.5rem; 
+.btn-submit {
+    grid-column: 2;
+    justify-self: end;
+    padding: 0.8rem 2.5rem;
     background-color: #fff;
     border: 1px solid #333;
     cursor: pointer;
@@ -333,7 +365,9 @@ body {
     margin-top: 3rem;
 }
 
-.footer-logo, .footer-contact, .footer-right-logo {
+.footer-logo,
+.footer-contact,
+.footer-right-logo {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -352,21 +386,121 @@ body {
     font-size: 0.9rem;
 }
 
-/* Responsivitat del formulari */
-@media (max-width: 600px) {
+/*TABLET: màxim 768px */
+@media (max-width: 768px) {
+
+    /* Navbar centrats */
+    .nav-links {
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    /* Hero alçada */
+    .hero {
+        height: 45vh;
+    }
+
+    /* Sobre nosaltres columna simple */
+    .about-item,
+    .about-item.reverse {
+        flex-direction: column;
+    }
+
+    .about-item img {
+        width: 100%;
+    }
+
+    /* Carta grid d'una sola columna */
+    .carta-grid {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "header-menu"
+            "side1"
+            "content1"
+            "side2"
+            "content2";
+    }
+
+    /* Galeria 2 columnes */
+    .gallery-item img {
+        width: 150px;
+        height: 150px;
+    }
+
+    /* Formulari una columna */
     .booking-form {
         grid-template-columns: 1fr;
     }
+
     .form-group.full {
         grid-column: span 1;
     }
+
     .btn-submit {
         grid-column: 1;
         width: 100%;
     }
+
+    /* Footer columna i centrat */
     .main-footer {
         flex-direction: column;
-        gap: 1.5rem;
+        align-items: center;
         text-align: center;
+        gap: 1rem;
+    }
+
+    /* Amagar logo del footer */
+    .footer-right-logo {
+        display: none;
+    }
+}
+
+/*MÒBIL: màxim 576px */
+@media (max-width: 576px) {
+
+    /* Navbar enllaços en columna */
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    /* Hero alçada mínima */
+    .hero {
+        height: 35vh;
+    }
+
+    /* Text hero adaptar posició i amplada */
+    .hero-text {
+        left: 5%;
+        right: 5%;
+        padding: 1rem;
+    }
+
+    /* Galeria 1 columna, imatges al 100% */
+    .gallery-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Carta les imatges dels plats en columna */
+    .imatges-flex {
+        flex-direction: column;
+    }
+
+    .card-plat {
+        min-width: unset;
+        width: 100%;
+    }
+
+    /* Botó flotant més petit */
+    .btn-float {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
     }
 }
