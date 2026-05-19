@@ -27,6 +27,15 @@ body {
     z-index: 1000;
     padding: 1rem;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    /* EJERCICIO 5.1: Smooth transition for navbar shrink effect */
+    transition: padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* EJERCICIO 5.1: Navbar shrink class applied when scroll exceeds 50px */
+/* Reduces padding and adds stronger shadow for compact navbar appearance */
+.navbar-shrink {
+    padding: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
 }
 
 .nav-links {
@@ -40,10 +49,22 @@ body {
     text-decoration: none;
     color: var(--primary-color);
     font-size: 1.1rem;
+    /* EXERCICI 1.2 Custom Transition: Smooth transition on multiple properties */
+    /* Applies smooth animation to color, text-shadow, and transform on state changes */
+    transition: color 0.3s ease, text-shadow 0.3s ease, transform 0.3s ease;
 }
 
+/* EXERCICI 1.2: Custom Transition on Navigation Links */
+/* Hover state modifies 3 distinct CSS properties smoothly:
+   1. color: changes text color to accent blue
+   2. text-shadow: adds shadow effect for depth
+   3. transform: scales up text slightly for emphasis
+*/
 .nav-links a:hover {
-    text-decoration: underline;
+    color: var(--accent-color);
+    text-shadow: 0 2px 8px rgba(0, 123, 255, 0.4);
+    transform: scale(1.1);
+    text-decoration: none;
 }
 
 /* BOTÓ FLOTANT */
@@ -59,6 +80,23 @@ body {
     z-index: 999;
 }
 
+/* EJERCICIO 2.1: KEYFRAMES ANIMATION - Hero Text Fade & Move */
+/* Animación que ejecuta automáticamente al cargar la página:
+   - Inicio (0%): Texto invisible (opacity 0) y posicionado abajo
+   - Progreso: Fade in gradual, movimiento hacia arriba
+   - Final (100%): Texto completamente visible (opacity 1) en posición final
+*/
+@keyframes heroTextFadeMove {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* HERO SECTION */
 .hero {
     position: relative;
@@ -66,12 +104,16 @@ body {
     height: 60vh;
 }
 
+/* EJERCICIO 2.1: Hero image with dark dimming filter */
+/* Aplicado pequeño filtro oscuro para mejorar contraste con texto */
 .hero-img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
+    filter: brightness(0.65) contrast(1.1);
 }
 
+/* EJERCICIO 2.1: Hero text with automatic fade & move animation on page load */
 .hero-text {
     position: absolute;
     top: 50%;
@@ -79,6 +121,10 @@ body {
     transform: translateY(-50%);
     background: rgba(255, 255, 255, 0.8);
     padding: 2rem;
+    /* Animation applied on page load: 1.2s duration with ease timing */
+    animation: heroTextFadeMove 1.2s ease-in-out;
+    /* Fill mode forward freezes final state (opacity 1, final position) */
+    animation-fill-mode: forwards;
 }
 
 /* SOBRE NOSALTRES */
@@ -234,17 +280,23 @@ body {
     margin: 0 auto;
 }
 
+/* EJERCICIO 1.1: GALLERY HOVER TRANSITION */
+/* Gallery item container with overflow hidden to contain transformed elements */
 .gallery-item {
-   
     flex: 0 1 auto;
+    /* Overflow hidden ensures scaled/rotated images don't overflow container bounds */
+    overflow: hidden;
+    border-radius: 8px;
 }
 
+/* Gallery images with smooth CSS transition combining scale, rotate, and grayscale */
 .gallery-item img {
     border: 3px solid #ccc;
-    transition: all 0.3s ease;
-    width: 200px;         
+    /* Transition applies to multiple properties: transform, filter - triggers on hover */
+    transition: transform 0.4s ease, filter 0.4s ease;
+    width: 200px;
     height: 200px;
-    object-fit: cover;    
+    object-fit: cover;
     display: block;
 }
 
@@ -255,9 +307,18 @@ body {
     filter: brightness(60%);
 }
 
+/* EJERCICIO 1.1: HOVER TRANSITION - combines scale, rotate, and grayscale */
+/* Applies three simultaneous CSS transformations on hover:
+   1. scale(1.15) - enlarges image 15%
+   2. rotate(3deg) - rotates image 3 degrees
+   3. grayscale(0) - removes grayscale to show color
+*/
 .gallery-item:hover img {
     border-color: var(--accent-color, #007bff);
-    filter: brightness(70%);
+    /* Combined transform: scale and rotate applied simultaneously */
+    transform: scale(1.15) rotate(3deg);
+    /* Filter grayscale removal to show full color on hover */
+    filter: brightness(70%) grayscale(0%);
     cursor: pointer;
 }
 
@@ -308,18 +369,53 @@ body {
     font-size: var(--text-size-base, 1rem);
 }
 
-.btn-submit { 
-    grid-column: 2; 
-    justify-self: end; 
-    padding: 0.8rem 2.5rem; 
+/* EJERCICIO 2.2: CUSTOM MULTI-FRAME ANIMATION - 4 Keyframes */
+/* Animación que se ejecuta al hover en el botón de envío:
+   - Modifica 3+ propiedades: background-color, box-shadow, transform, color
+   - 4 puntos de control: 0%, 33%, 66%, 100%
+*/
+@keyframes submitButtonPulse {
+    0% {
+        background-color: #fff;
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+        transform: scale(1);
+        color: #333;
+    }
+    33% {
+        background-color: #f0f8ff;
+        box-shadow: 0 0 8px 2px rgba(0, 123, 255, 0.3);
+        transform: scale(1.05);
+        color: #007bff;
+    }
+    66% {
+        background-color: #e6f0ff;
+        box-shadow: 0 0 16px 4px rgba(0, 123, 255, 0.5);
+        transform: scale(1.1);
+        color: #0056b3;
+    }
+    100% {
+        background-color: #fff;
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+        transform: scale(1);
+        color: #333;
+    }
+}
+
+.btn-submit {
+    grid-column: 2;
+    justify-self: end;
+    padding: 0.8rem 2.5rem;
     background-color: #fff;
     border: 1px solid #333;
     cursor: pointer;
+    /* EXERCICI 2.2: Custom animation with 4 keyframes on hover */
     transition: background 0.3s;
 }
 
+/* EJERCICIO 2.2: Apply multi-frame animation on submit button hover */
+/* Animation runs for 0.8s with ease timing, modifying 4 distinct properties */
 .btn-submit:hover {
-    background-color: #f0f0f0;
+    animation: submitButtonPulse 0.8s ease;
 }
 
 /* FOOTER REFACTORITZAT */
@@ -352,8 +448,74 @@ body {
     font-size: 0.9rem;
 }
 
-/* Responsivitat del formulari */
-@media (max-width: 600px) {
+/* EJERCICIO 3: HTML5 Video Embedding */
+/* Video section container with proper spacing and centering */
+.videos-section {
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* EJERCICIO 3: Video container with centered layout */
+/* Flexbox ensures video is horizontally centered within viewport */
+.video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem auto;
+    max-width: 100%;
+    /* Overflow hidden prevents video from causing horizontal scroll */
+    overflow: hidden;
+}
+
+/* EJERCICIO 3: Responsive video element with automatic sizing */
+/* max-width 100% ensures video never exceeds container bounds
+   height auto maintains aspect ratio for responsive scaling
+   display block removes inline spacing artifacts
+*/
+.restaurant-video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    background: #000;
+    border-radius: 8px;
+}
+
+/* EJERCICIO 4: Video controls container (custom control bar) */
+/* Dark semi-transparent background for control bar overlay */
+.video-controls {
+    width: 100%;
+    max-width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    border-radius: 0 0 8px 8px;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+/* EJERCICIO 4: Control icon styling with Material Icons */
+/* Icons are functional buttons with smooth hover transition effects */
+.control-icon {
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    /* EJERCICIO 4: Smooth transition on shadow and transform for interactive feedback */
+    transition: text-shadow 0.3s ease, transform 0.3s ease;
+    user-select: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* EJERCICIO 4: Hover effect on control icons */
+/* Adds prominent shadow effect and scale transform for visual feedback */
+.control-icon:hover {
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.8), 0 0 20px rgba(0, 123, 255, 0.6);
+    transform: scale(1.15);
+}
     .booking-form {
         grid-template-columns: 1fr;
     }

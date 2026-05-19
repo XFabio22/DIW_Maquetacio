@@ -104,7 +104,43 @@
     </div>
     </section>
 
-<section id="reserva" class="booking">
+    <!-- EJERCICIO 3: HTML5 Video Embedding Section -->
+    <!-- New semantic section for restaurant videos with centered, responsive video element -->
+    <section id="videos" class="videos-section">
+        <h2 class="titol-seccio">Vídeos del restaurant</h2>
+        <!-- EJERCICIO 3: Video container with custom control bar (Exercise 4) -->
+        <div class="video-container">
+            <!-- EJERCICIO 3: Standard HTML5 video tag with muted and without native controls -->
+            <!-- Attributes: paused by default, muted by default, controls hidden for custom UI (Exercise 4) -->
+            <!-- EJERCICIO 3: Standard HTML5 video tag with muted and without native controls -->
+            <!-- Attributes: paused by default, muted by default, controls hidden for custom UI (Exercise 4) -->
+            <video id="restaurantVideo" class="restaurant-video" muted playsinline>
+                <!-- Source file for restaurant promotional video -->
+                <source src="/assets/video/restaurant.mp4" type="video/mp4">
+                <!-- Fallback for unsupported browsers -->
+                Your browser does not support the video tag.
+            </video>
+            <!-- EJERCICIO 4: Custom control bar container with Material Icons -->
+            <!-- Dark semi-transparent background with custom control buttons -->
+            <div class="video-controls" id="videoControls">
+                <!-- EJERCICIO 4: Play button using Material Icons play_circle -->
+                <!-- Onclick calls playVideo() JavaScript function -->
+                <span class="control-icon material-icons" onclick="playVideo()" id="playBtn" title="Play">play_circle</span>
+
+                <!-- EJERCICIO 4: Pause button using Material Icons pause_circle -->
+                <!-- Onclick calls pauseVideo() JavaScript function -->
+                <span class="control-icon material-icons" onclick="pauseVideo()" id="pauseBtn" title="Pause">pause_circle</span>
+
+                <!-- EJERCICIO 4: Volume Up button using Material Icons volume_up -->
+                <!-- Onclick calls unmute() to restore audio -->
+                <span class="control-icon material-icons" onclick="unmuteVideo()" id="volumeUpBtn" title="Unmute">volume_up</span>
+
+                <!-- EJERCICIO 4: Volume Off button using Material Icons volume_off -->
+                <!-- Onclick calls muteVideo() to silence audio -->
+                <span class="control-icon material-icons" onclick="muteVideo()" id="volumeOffBtn" title="Mute">volume_off</span>
+            </div>
+        </div>
+    </section>
     <h2 class="titol-seccio">Reserva</h2>
     <form class="booking-form">
         <div class="form-group">
@@ -149,5 +185,67 @@
     </div>
 </footer>
     </main>
+
+    <!-- EJERCICIO 4 & 5: JavaScript for Video Controls and Scroll Events -->
+    <script>
+        const video = document.getElementById('restaurantVideo');
+
+        // EJERCICIO 4: Video control functions - GLOBAL SCOPE
+        // These functions must be globally accessible for onclick handlers
+
+        /* EJERCICIO 4: Play video function */
+        /* Calls native .play() media method to start video playback */
+        function playVideo() {
+            video.play();
+            console.log('Play button clicked - Video playing');
+        }
+
+        /* EJERCICIO 4: Pause video function */
+        /* Calls native .pause() media method to stop video playback */
+        function pauseVideo() {
+            video.pause();
+            console.log('Pause button clicked - Video paused');
+        }
+
+        /* EJERCICIO 4: Unmute video function */
+        /* Sets .muted = false to restore audio stream volume */
+        function unmuteVideo() {
+            video.muted = false;
+            console.log('Unmute button clicked - Audio enabled');
+        }
+
+        /* EJERCICIO 4: Mute video function */
+        /* Sets .muted = true to silence all audio tracks */
+        function muteVideo() {
+            video.muted = true;
+            console.log('Mute button clicked - Audio muted');
+        }
+
+        // EJERCICIO 5: Scroll-driven JavaScript enhancements
+
+        /* EJERCICIO 5: Window scroll event listener for navbar shrink and video auto-play */
+        window.onscroll = function() {
+            /* EJERCICIO 5.1: Shrinking navbar on scroll */
+            /* Check if scroll position exceeds 50px threshold */
+            if (document.documentElement.scrollTop > 50) {
+                document.querySelector('.navbar').classList.add('navbar-shrink');
+            } else {
+                document.querySelector('.navbar').classList.remove('navbar-shrink');
+            }
+
+            /* EJERCICIO 5.2: Auto-play video when scrolled into view */
+            /* Get video element's bounding coordinates */
+            const videoRect = video.getBoundingClientRect();
+
+            /* Check if video is visible in viewport (within bounds) */
+            /* If video top is above viewport bottom, trigger auto-play */
+            if (videoRect.top < window.innerHeight && videoRect.bottom > 0) {
+                /* Only auto-play if video is not already playing */
+                if (video.paused) {
+                    video.play();
+                }
+            }
+        };
+    </script>
 </body>
 </html>
